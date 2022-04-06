@@ -23,7 +23,6 @@ interface Category {
 interface Concert {
   id: string;
   category?: Category;
-  secondCategory?: Category;
   titleDe: string;
   titleEn: string;
 }
@@ -46,7 +45,6 @@ const typeDefs = gql`
   type Concert {
     id: ID!
     category: Category
-    secondCategory: Category
     titleDe: String!
     titleEn: String!
   }
@@ -74,7 +72,11 @@ let childCategory = {
 };
 /** ********* **/
 
-const allCategories: Category[] = [parentCategory, childCategory];
+const allCategories: Category[] = [
+  parentCategory,
+  childCategory,
+  parentCategory2,
+];
 
 const allConcerts: Concert[] = [
   {
@@ -82,7 +84,6 @@ const allConcerts: Concert[] = [
     titleDe: "concert1",
     titleEn: "concert1",
     category: childCategory,
-    secondCategory: parentCategory2,
   },
   {
     id: "69e2025a-2573-4d25-b2e1-a6d34a7bcefd",
